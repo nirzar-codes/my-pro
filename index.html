@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Info Corner</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0fff0;
+      color: #2e4e2e;
+    }
+
+    header {
+      background-color: #2e8b57;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #d0f0c0;
+      font-size: 14px;
+    }
+
+    .about-section {
+      background-color: #1e1f26;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .about-text {
+      flex: 1 1 55%;
+    }
+
+    .about-text h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      background-color: #444;
+      border-radius: 10px;
+      height: 12px;
+      margin: 8px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background-color: #00ff99;
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+
+    .percentage {
+      font-weight: bold;
+      margin-left: 10px;
+      color: #ccc;
+    }
+
+    .about-photo img {
+      max-width: 250px;
+      border: 6px solid #00ff99;
+      border-bottom: 20px solid #00ff99;
+      border-right: 20px solid #00ff99;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    ul li strong {
+      color: #2e8b57;
+    }
+
+    .editors-section {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      border-radius: 10px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #2e8b57;
+    }
+
+    .editor-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .editor-card {
+      background-color: #f5f5f5;
+      border: 2px solid #00ff99;
+      border-radius: 10px;
+      width: 280px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .editor-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .editor-card h3 {
+      color: #2e8b57;
+      margin-bottom: 10px;
+    }
+
+    .editor-card p {
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    .editor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.2);
+    }
+
+    .testimonials {
+      background-color: #1e1f26;
+      color: #fff;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      background-color: #1e1f26;
+      border: 2px solid #00ff99;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      position: relative;
+      text-align: center;
+    }
+
+    .testimonial-card::before {
+      content: "“”";
+      position: absolute;
+      top: -25px;
+      right: 20px;
+      font-size: 40px;
+      color: #00ff99;
+    }
+
+    .testimonial-image {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #00ff99;
+      margin: 0 auto 15px;
+    }
+
+    .testimonial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin: 5px 0;
+    }
+
+    .testimonial-role {
+      color: #bbb;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+
+    .personal-info button {
+      background-color: #fcd300;
+      border: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .personal-info button:hover {
+      background-color: #e6ba00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Creative Hub</h1>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>Hey there!</h2>
+          <h1>Hi, I’m Nirzar</h1>
+          <p>I am a passionate creative with hands-on experience in graphic design, image editing, and video production. I bring ideas to life visually, crafting engaging content across digital platforms.</p>
+          <div class="personal-info">
+            <p><strong>Date of Birth:</strong> August 11, 2006</p>
+            <p><strong>Address:</strong> at post hiwarkhed tq, Morshi Dist Amravati</p>
+            <p><strong>College:</strong> P. R. Pote Patil College of Engineering and Management</p>
+            <p><strong>Profession:</strong> Graphic Designer, Image Editor & Video Editor</p>
+            <button onclick="window.open('https://www.linkedin.com/in/nirzar-dabrase-b98137338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app')">LinkedIn</button>
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="a.jpg" alt="Profile photo">
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>Personal Skills</h2>
+          <p>I possess a foundational understanding of programming languages such as C, HTML, and Java. Additionally, I have skills in Graphic Designing, Video Editing & Image Editing, showcasing my communication and organizational strengths.</p>
+          <div class="skill"><strong>Graphic Designer</strong>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div><span class="percentage">70%</span>
+          </div>
+          <div class="skill"><strong>Video Editing</strong>
+            <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div><span class="percentage">60%</span>
+          </div>
+          <div class="skill"><strong>Image Editing</strong>
+            <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div><span class="percentage">60%</span>
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="n.jpeg" alt="Profile Photo">
+        </div>
+      </div>
+    </section>
+
+    <section class="editors-section">
+      <h2 class="section-title">Image Editors that i can handle</h2>
+      <div class="editor-cards">
+        <div class="editor-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop">
+          <h3>Adobe Photoshop</h3>
+          <p>Industry-standard software known for its vast features in image manipulation and graphic design.</p>
+        </div>
+        <div class="editor-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/The_GIMP_icon_-_gnome.svg" alt="GIMP">
+          <h3>GIMP</h3>
+          <p>Free and open-source tool that offers advanced editing and customization similar to Photoshop.</p>
+        </div>
+        <div class="editor-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Canva">
+          <h3>Canva</h3>
+          <p>Easy-to-use online editor perfect for social media graphics, posters, and presentations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="editors-section">
+      <h2 class="section-title">Video Editors that i can handle</h2>
+      <div class="editor-cards">
+        <div class="editor-card"><img src="premire.png" alt="Premiere Pro"><h3>Adobe Premiere Pro</h3><p>Professional-level video editing software widely used in the film and TV industry.</p></div>
+        <div class="editor-card"><img src="vinci.jpg" alt="DaVinci Resolve"><h3>DaVinci Resolve</h3><p>Powerful tool known for color grading, editing, and audio post-production.</p></div>
+        <div class="editor-card"><img src="cap.png" alt="CapCut"><h3>CapCut</h3><p>Free and easy-to-use editor great for mobile and social media video content.</p></div>
+        <div class="editor-card"><img src="clip.jpg" alt="Clipchamp"><h3>Clipchamp</h3><p>User-friendly web-based editor with templates, perfect for beginners.</p></div>
+        <div class="editor-card"><img src="final.jpg" alt="Final Cut Pro"><h3>Final Cut Pro</h3><p>Mac-exclusive, fast and powerful video editor for professional creators.</p></div>
+        <div class="editor-card"><img src="hit.jpg" alt="HitFilm Express"><h3>HitFilm Express</h3><p>Free editor with advanced features like VFX and 3D editing.</p></div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>Happy Clients Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <div class="testimonial-image"><img src="e.jpeg" alt="Client 1"></div>
+          <div class="testimonial-name">Chris Evans</div>
+          <div class="testimonial-role">Client</div>
+          <div class="testimonial-text">Thanks Nirzar for the stunning engagement invitation design. Your creativity and attention to detail are impressive. It's a perfect fit for our event.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-image"><img src="c.jpeg" alt="Client 2"></div>
+          <div class="testimonial-name">Chris Hemsworth</div>
+          <div class="testimonial-role">Client</div>
+          <div class="testimonial-text">You've done a fantastic job on the booklet design. I'm really impressed with the quality and creativity. Thanks for delivering such an excellent piece of work!</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Creative Corner</p>
+  </footer>
+</body>
+</html>
